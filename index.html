@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه گیمینگ سه بعدی</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">GAME<span style="color:white">ZONE</span></div>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#hero" data-i18n="nav_home">خانه</a></li>
+                <li><a href="#products" data-i18n="nav_games">محصولات</a></li>
+                <li><a href="#assembly" data-i18n="nav_assembly">مونتاژ</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <select class="lang-switch" onchange="changeLanguage(this.value)">
+                <option value="fa">FA</option>
+                <option value="ar">AR</option>
+                <option value="en">EN</option>
+            </select>
+            <div class="cart-icon" onclick="openCheckout()">
+                🛒 <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 data-i18n="hero_title">دنیای بازی‌های ۳ بعدی</h1>
+            <p data-i18n="hero_desc">بهترین تجربه گیمینگ با گرافیک‌های پیشرفته و سخت‌افزارهای نسل جدید.</p>
+            <a href="#products" class="btn btn-primary" data-i18n="cta_shop">خرید کنید</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="categories-grid">
+            <div class="category-card" onclick="scrollToSection('products')">
+                <div class="category-icon">🎮</div>
+                <h3 data-i18n="cat_games">بازی‌ها</h3>
+            </div>
+            <div class="category-card" onclick="scrollToSection('products')">
+                <div class="category-icon">🔧</div>
+                <h3 data-i18n="cat_assembly">مونتاژ</h3>
+            </div>
+        </div>
+
+        <h2 class="section-title" data-i18n="featured_products">محصولات منتخب ۳ بعدی</h2>
+        <div class="products-grid" id="products-container"></div>
+
+        <section class="assembly-service" id="assembly">
+            <div class="assembly-content">
+                <div class="assembly-text">
+                    <h3 data-i18n="service_title">خدمات مونتاژ VR Ready</h3>
+                    <p data-i18n="service_desc">سیستم‌هایی آماده برای واقعیت مجازی و بازی‌های سنگین.</p>
+                </div>
+                <div class="assembly-img">
+                    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=600&auto=format&fit=crop" alt="PC">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="saudi-logo-container">
+                        <div class="saudi-logo-text">
+                            <div class="saudi-icon">🌴</div>
+                            <span data-i18n="saudi_center">مركز السعودي للاعمال</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="payment_methods">پرداخت</h4>
+                    <div class="payment-methods">
+                        <div class="payment-icon">VISA</div>
+                        <div class="payment-icon">Mada</div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">&copy; 2023 GameZone.</div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal">
+            <span class="close-modal" onclick="closeCheckout()">&times;</span>
+            <h2 data-i18n="checkout_title">پرداخت امن</h2>
+            <div class="checkout-summary">
+                <p data-i18n="total_items">اقلام: <span id="modal-count">0</span></p>
+                <p data-i18n="total_price">مبلغ: <span id="modal-price">0</span> SAR</p>
+            </div>
+            <label class="terms-label">
+                <input type="checkbox" class="terms-input" id="terms-check">
+                <span data-i18n="terms_text">قوانین را می‌پذیرم.</span>
+            </label>
+            <button class="btn btn-primary" style="width:100%" onclick="processPayment()" data-i18n="btn_pay">پرداخت</button>
+            <p id="checkout-error" style="color:red; display:none" data-i18n="error_terms">تایید قوانین الزامی است.</p>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">اضافه شد</div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
